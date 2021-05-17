@@ -1,0 +1,45 @@
+1. (Relation)DB: 개요
+2. SQL - DDL, DCL, DML 
+        (DA) (DBA) (DB Develope, CRUD)
+3. Data Design, DA, DB Scheme(entity, ERD Logical) -> table(Physical)
+   : 정규화(Normalization)
+4. DB Programming(c, c++, java(JDBC), python, JavaScript, PHP.......)
+
+데이터베이스 삭제
+drop database [     ];
+drop database test;
+
+데이터베이스 생성
+create database [    ]
+create database webdb;
+
+use webdb;
+show tables;
+
+linux에서 webdb 접근할수 있게 계정 생성
+create user 'webdb'@'localhost' identified by '-';
+권한 설정
+grant all privileges on webdb.* to 'webdb'@'localhost';
+변경사항 적용
+flush privileges;
+테스트
+mysql -u webdb -D -p
+
+windows에서 webdb 접근할수 있게 계정 생성
+create user 'webdb'@'192.168.%' identified by '-';
+권한 설정
+grant all privileges on webdb.* to 'webdb'@'192.168.%';
+변경사항 적용
+flush privileges;
+
+텍스트 파일 내용 pet 테이블에 insert
+load data local infile '/home/webmaster/pet.txt' into table pet;
+
+Fluffy	Harold	cat	f	1993-02-04	\N
+Claws	Gwen	cat	m	1994-03-17	\N
+Buffy	Harold	dog	f	1989-05-13	\N
+Fang	Benny	dog	m	1990-08-27	\N
+Bowser	Diane	dog	m	1979-08-31	1995-07-29
+Chirpy	Gwen	bird	f	1998-09-11	\N
+Whistler	Gwen	bird	\N	1997-12-09	\N
+Slim	Benny	snake	m	1996-04-29	\N

@@ -76,4 +76,3 @@ select count(*) from pet where death is not null;
 -- order by
 -- 어린순으로 정렬
 select * from pet order by birth desc, name asc;
-
