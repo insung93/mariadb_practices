@@ -13,7 +13,7 @@ public class MyDriver implements Driver {
 	static {
 		try {
 			System.out.println("static code area");
-			DriverManager.registerDriver(new MyDriver());
+			DriverManager.registerDriver(new MyDriver()) ;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

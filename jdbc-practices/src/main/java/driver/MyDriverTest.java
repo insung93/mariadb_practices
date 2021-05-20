@@ -13,7 +13,7 @@ public class MyDriverTest {
 			Class.forName("driver.MyDriver");
 
 			// 2. 연결하기
-			String url = "jdbc:mydb://127.0.0.1:2202/webdb";
+			String url = "jdbc:mydb://127.0.0.1:2202/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 			// 3. 연결성공
