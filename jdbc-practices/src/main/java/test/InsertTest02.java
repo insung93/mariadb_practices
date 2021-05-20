@@ -2,20 +2,19 @@ package test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class InsertTest01 {
+public class InsertTest02 {
 
 	public static void main(String[] args) {
 		insert("총무");
 		insert("인사");
 		insert("회계");
-		
 	}
 	public static boolean insert(String name) {
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		boolean result = false;
 		try {
 			// 1. JDBC 드라이버 로딩
@@ -27,15 +26,19 @@ public class InsertTest01 {
 			String url = "jdbc:mysql://192.168.254.32:3307/employees?charset=utf8";
 			conn = DriverManager.getConnection(url, "hr", "hr");
 			
-			// 3. Statement 생성
-			stmt = conn.createStatement();
 			
-			// 4. SQL문을 실행
+			// 3. SQL문 준비
 			String sql = 
 					"insert" +
 					" into dept" +
-					" values(null,'" + name + "')";
-			int count = stmt.executeUpdate(sql);
+					" values(null, ? )";
+			pstmt = conn.prepareStatement(sql);
+			
+			// 4. 바인딩(binding)
+			pstmt.setString(1, name);
+			
+			// 5. SQL 실행
+			int count = pstmt.executeUpdate();
 			result = count == 1;
 			
 			// 3. 연결 성공
@@ -46,8 +49,8 @@ public class InsertTest01 {
 			System.out.println("SQL Exception " + e);
 		} finally {
 			try {
-				if(stmt != null) {
-					stmt.close();
+				if(pstmt != null) {
+					pstmt.close();
 				}
 				if (conn != null) {
 					conn.close();

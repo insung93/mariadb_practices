@@ -5,15 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertTest01 {
+public class DeleteTest01 {
 
 	public static void main(String[] args) {
-		insert("총무");
-		insert("인사");
-		insert("회계");
-		
+		Boolean result = delete(8L);
+		System.out.println(result ? "성공":"실패");
 	}
-	public static boolean insert(String name) {
+	public static boolean delete(Long no) {
 		Connection conn = null;
 		Statement stmt = null;
 		boolean result = false;
@@ -32,9 +30,9 @@ public class InsertTest01 {
 			
 			// 4. SQL문을 실행
 			String sql = 
-					"insert" +
-					" into dept" +
-					" values(null,'" + name + "')";
+					"delete" +
+					" from dept" +
+					" where no = '" + no + "'";
 			int count = stmt.executeUpdate(sql);
 			result = count == 1;
 			
