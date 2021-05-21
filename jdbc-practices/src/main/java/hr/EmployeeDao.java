@@ -133,7 +133,7 @@ public class EmployeeDao {
 			Connection conn = null;
 			try {
 				Class.forName("org.mariadb.jdbc.Driver");
-				String url = "jdbc:mysql://192.168.254.32:3307/employees?charset=utf8";
+				String url = "jdbc:mysql://192.168.254.32:3307/employees?characterEncoding=utf8";
 				conn = DriverManager.getConnection(url, "hr", "hr");
 			} catch (ClassNotFoundException e) {
 				System.out.println("드라이버 로딩 실패:" + e);

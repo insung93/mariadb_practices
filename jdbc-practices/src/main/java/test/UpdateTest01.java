@@ -28,7 +28,7 @@ public class UpdateTest01 {
 
 			// 2. DriverManager ( url , ID , PWD )
 			// 연결하기
-			String url = "jdbc:mysql://192.168.254.32:3307/employees?charset=utf8";
+			String url = "jdbc:mysql://192.168.254.32:3307/employees?characterEncoding=utf8";
 			conn = DriverManager.getConnection(url, "hr", "hr");
 
 			// 3. Statement 생성

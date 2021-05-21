@@ -18,7 +18,7 @@ public class ConnectionTest {
 
 			// 2. DriverManager ( url , ID , PWD )
 			//    연결하기
-			String url = "jdbc:mysql://192.168.254.32:3307/webdb?charset=utf8";
+			String url = "jdbc:mysql://192.168.254.32:3307/webdb?characterEncoding=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 			stmt = conn.createStatement();
