@@ -32,33 +32,27 @@ public class BookMall {
 		for(CategoryVo vo : list) {
 			System.out.println(vo);
 		}
-		System.out.println("=============================================================================================");
 		System.out.println("==========================================Book List==========================================");
 		List<BookVo> list2 = new BookDao().findAll();
 		for(BookVo vo : list2) {
 			System.out.println(vo);
 		}
-		System.out.println("=============================================================================================");
 		System.out.println("========================================Customer List========================================");
 		List<MemberVo> list3 = new MemberDao().findAll();
 		for(MemberVo vo : list3) {
 			System.out.println(vo);
 		}
-		System.out.println("=============================================================================================");
 		System.out.println("==========================================Cart List==========================================");
 		List<CartVo> list4 = new CartDao().findAll();
 		for (CartVo vo : list4) {
 			System.out.println(vo);
 		}
-		System.out.println("=============================================================================================");
 		System.out.println("==========================================Order List=========================================");
 		List<OrderVo> list5 = new OrderDao().findAll();
 		for(OrderVo vo : list5) {
 			System.out.println(vo);
 		}
-		System.out.println("=============================================================================================");
 		System.out.println("=======================================OrderBook List========================================");
-
 		List<OrderBookVo> list6 = new OrderBookDao().findAll();
 		for(OrderBookVo vo : list6) {
 			System.out.println(vo);
